@@ -20,7 +20,7 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <Layout>
+            <Layout px={true}>
                 <main>
                     <div>
                         <h3 className="pb-3 text-lg font-semibold">Recently added items:</h3>
@@ -28,7 +28,7 @@ export default function Home() {
                             {recentBlogs?.map((blog) => (
                                 <>
                                     <BlogItem title={blog.title} content={blog.content} image={blog.blogImage.url}
-                                              link={blog.slug} date={blog.timeCreated}/>
+                                              link={'/blog/' + blog.slug} date={blog.timeCreated}/>
                                 </>
                             ))}
                         </div>

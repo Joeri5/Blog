@@ -33,22 +33,19 @@ const BlogItem = ({image, link, title, content, date}: Props) => {
     return (
         <div className="w-full flex flex-col gap-2">
             <Link href={link || ''} className="w-full">
-                <img className="w-full h-[30vh] bg-black/10 object-contain item-center" src={image}
+                <img className="w-full h-[30vh] bg-black/10 object-cover p-5 item-center" src={image}
                      alt={'Cover image for blog: ' + title}/>
             </Link>
             <div className="flex flex-col gap-2">
                 <p>
-                    <span className="font-medium text-lg">{title}.</span>
-                    {/*Lorem ipsum dolor sit amet, consectetur*/}
-                    {/*adipisicing elit. A cupiditate dicta distinctio*/}
-                    {/*dolorem.*/}
-                    {content.slice(0, 100)}
+                    <span className="font-medium text-lg">{title}. </span>
+                    {content.slice(0, 90) + (content.length > 90 ? '...' : '')}
                 </p>
                 <div className="flex justify-between">
                     <Link href={link || ''} className="font-semibold flex gap-2">Read more
                         <svg
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                            stroke="currentColor" className="w-6 h-6">
+                            stroke="currentColor" className="w-6 h-6 text-pink-500">
                             <path strokeLinecap="round" strokeLinejoin="round"
                                   d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/>
                         </svg>
