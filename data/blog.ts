@@ -1,5 +1,5 @@
 import {fetcher} from "@/data/fetcher";
-import request from "graphql-request";
+import {request} from "graphql-request";
 import useSWR from "swr"
 
 export type Blog = {
@@ -13,9 +13,17 @@ export type Blog = {
     timeCreated: string;
 }
 
+type BlogsResponse = {
+    blogs: Blog[];
+};
+
+type BlogResponse = {
+    blogs: Blog[] | undefined;
+};
+
 export async function fetchBlogs(): Promise<Blog[]> {
-    return (await request(process.env.HYGRAPH_API_URL!!,
-            `query BlogsRetrievalQuery {
+    const req = await request<BlogsResponse>(process.env.HYGRAPH_API_URL!,
+        `query BlogsRetrievalQuery {
             blogs {
                 id
                 title
@@ -28,13 +36,14 @@ export async function fetchBlogs(): Promise<Blog[]> {
             }
         }
     `
-        )
-    ).blogs;
+    )
+
+    return req.blogs
 }
 
 export async function fetchBlog(slug: string): Promise<Blog[] | undefined> {
-    return (await request(process.env.HYGRAPH_API_URL!!,
-            `query BlogsRetrievalQuery {
+    const req = await request<BlogResponse>(process.env.HYGRAPH_API_URL!,
+        `query BlogRetrievalQuery {
             blogs(where:{slug: "${slug}"}, first: 1) {
                 id
                 title
@@ -46,9 +55,9 @@ export async function fetchBlog(slug: string): Promise<Blog[] | undefined> {
                 timeCreated
             }
         }
-    `
-        )
-    ).blogs[0];
+    `)
+
+    return req.blogs
 }
 
 export function useBlog() {
