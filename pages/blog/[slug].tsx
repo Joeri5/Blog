@@ -3,7 +3,7 @@ import {useBlog} from "@/data/blog";
 import Layout from "@/components/layout";
 import ReactMarkdown from 'react-markdown';
 import {useRouter} from "next/router";
-
+import Highlight from "react-highlight";
 
 const Blog = () => {
     const slug = useRouter().query.slug?.toString();
@@ -23,6 +23,14 @@ const Blog = () => {
                             <h1 className="py-5 text-2xl">{blog.title}</h1>
                             <ReactMarkdown className="space-y-5">{blog.content}</ReactMarkdown>
                         </div>
+                        {blog.codeSnippet ? (
+                            <div className="px-10 pt-5 gap-2 flex flex-col text-xs">
+                                <p className="text-base">Code Snippet:</p>
+                                <Highlight className={blog.codeLanguage}>
+                                    {blog.codeSnippet}
+                                </Highlight>
+                            </div>
+                        ) : null}
                     </>
                 ))}
             </main>

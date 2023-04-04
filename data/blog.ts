@@ -9,6 +9,8 @@ export type Blog = {
         url: string;
     };
     content: string;
+    codeSnippet: string;
+    codeLanguage: string;
     slug: string;
     timeCreated: string;
 }
@@ -31,6 +33,8 @@ export async function fetchBlogs(): Promise<Blog[]> {
                     url
                 }
                 content
+                codeSnippet
+                codeLanguage
                 slug
                 timeCreated
             }
@@ -51,6 +55,8 @@ export async function fetchBlog(slug: string): Promise<Blog[] | undefined> {
                     url
                 }
                 content
+                codeSnippet
+                codeLanguage
                 slug
                 timeCreated
             }
