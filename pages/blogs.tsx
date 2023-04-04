@@ -11,7 +11,7 @@ export default function Blogs() {
 
     let blogItems = blogs?.sort((a, b) => {
         return new Date(a.timeCreated).getTime() - new Date(b.timeCreated).getTime() //sort by date
-    }).slice(0, 6);
+    });
 
     return (
         <>
