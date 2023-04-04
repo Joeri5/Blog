@@ -2,12 +2,12 @@ import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import Layout from "@/components/layout";
 import BlogItem from "@/components/blog/blog.item";
-import {useBlog} from "@/data/blog";
+import {useBlogs} from "@/data/blog";
 
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
-    const {data: blogs, error} = useBlog();
+    const {data: blogs, error} = useBlogs();
 
     const recentBlogs = blogs?.slice(0, 6);
     console.log(blogs)

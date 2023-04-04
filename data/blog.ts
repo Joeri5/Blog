@@ -60,6 +60,10 @@ export async function fetchBlog(slug: string): Promise<Blog[] | undefined> {
     return req.blogs
 }
 
-export function useBlog() {
+export function useBlogs() {
     return useSWR<Blog[]>("/api/blog", fetcher);
+}
+
+export function useBlog(slug: string) {
+    return useSWR<Blog[]>(`/api/blog/${slug}`, fetcher);
 }

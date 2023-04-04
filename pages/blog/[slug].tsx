@@ -2,10 +2,12 @@ import React from 'react';
 import {useBlog} from "@/data/blog";
 import Layout from "@/components/layout";
 import ReactMarkdown from 'react-markdown';
+import {useRouter} from "next/router";
 
 
 const Blog = () => {
-    const {data: blog, error} = useBlog();
+    const slug = useRouter().query.slug?.toString();
+    const {data: blog, error} = useBlog(slug);
 
     return (
         <Layout px={false}>
