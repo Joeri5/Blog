@@ -19,7 +19,7 @@ const Blog = () => {
                         </div>
                         <div className="px-10">
                             <h1 className="py-5 text-2xl">{blog.title}</h1>
-                            <ReactMarkdown>{blog.content}</ReactMarkdown>
+                            <ReactMarkdown className="space-y-5">{blog.content}</ReactMarkdown>
                         </div>
                     </>
                 ))}
