@@ -39,7 +39,7 @@ const BlogItem = ({image, link, title, content, date}: Props) => {
             <div className="flex flex-col gap-2">
                 <p>
                     <span className="font-medium text-lg">{title}. </span>
-                    {content.slice(0, 90) + (content.length > 90 ? '...' : '')}
+                    {content ? content.slice(0, 90) + (content.length > 90 ? '...' : '') : ''}
                 </p>
                 <div className="flex justify-between">
                     <Link href={link || ''} className="font-semibold flex gap-2">Read more

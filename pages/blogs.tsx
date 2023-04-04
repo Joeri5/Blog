@@ -8,7 +8,11 @@ const inter = Inter({subsets: ['latin']})
 
 export default function Blogs() {
     const {data: blogs, error} = useBlogs();
-    
+
+    let blogItems = blogs?.sort((a, b) => {
+        return new Date(a.timeCreated).getTime() - new Date(b.timeCreated).getTime() //sort by date
+    }).slice(0, 6);
+
     return (
         <>
             <Head>
@@ -22,7 +26,7 @@ export default function Blogs() {
                     <div>
                         <h3 className="pb-3 text-lg font-semibold">All items:</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                            {blogs?.map((blog) => (
+                            {blogItems?.map((blog) => (
                                 <>
                                     <BlogItem title={blog.title} content={blog.content} image={blog.blogImage.url}
                                               link={'/blog/' + blog.slug} date={blog.timeCreated}/>
