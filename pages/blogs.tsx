@@ -8,9 +8,7 @@ const inter = Inter({subsets: ['latin']})
 
 export default function Blogs() {
     const {data: blogs, error} = useBlogs();
-
-    console.log(blogs)
-
+    
     return (
         <>
             <Head>

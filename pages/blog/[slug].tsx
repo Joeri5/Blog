@@ -7,7 +7,7 @@ import {useRouter} from "next/router";
 
 const Blog = () => {
     const slug = useRouter().query.slug?.toString();
-    const {data: blog, error} = useBlog(slug);
+    const {data: blog, error} = useBlog(slug || "");
 
     return (
         <Layout px={false}>
