@@ -9,8 +9,9 @@ const inter = Inter({subsets: ['latin']})
 export default function Home() {
     const {data: blogs, error} = useBlogs();
 
-    const recentBlogs = blogs?.slice(0, 6);
-    console.log(blogs)
+    const recentBlogs = blogs?.sort((a, b) => {
+        return new Date(b.timeCreated).getTime() - new Date(a.timeCreated).getTime() //sort by date
+    }).slice(0, 6);
 
     return (
         <>
