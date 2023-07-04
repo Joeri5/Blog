@@ -4,7 +4,7 @@ const Footer = () => {
     const year = new Date().getFullYear();
     return (
         <footer className="px-10 py-3 bg-black/10">
-            <p><span className="text-pink-500">&copy;</span> {year} Joeri Schenk.</p>
+            <p><span className="text-blue-500">&copy;</span> {year} Joeri Schenk.</p>
         </footer>
     );
 };
