@@ -26,7 +26,7 @@ type BlogResponse = {
 export async function fetchBlogs(): Promise<Blog[]> {
     const req = await request<BlogsResponse>(process.env.HYGRAPH_API_URL!,
         `query BlogsRetrievalQuery {
-            blogs {
+            blogs(first: 100) {
                 id
                 title
                 blogImage {
