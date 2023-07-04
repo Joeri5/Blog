@@ -50,6 +50,7 @@ const BlogItem = ({ image, link, title, content, date, tags }: Props) => {
         <div className="py-1 flex gap-2">
           {tags.map((tag) => (
             <figure
+              key={tag}
               className={`w-fit px-2.5 py-1.5 text-xs bg-gray-500/30 rounded-full`}
             >
               <p>{tag}</p>
