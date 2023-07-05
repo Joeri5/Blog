@@ -90,14 +90,14 @@ const Blog = () => {
                   alt={"Blog image of the blog: " + blog.title}
                 />
               </div>
-              <div className="px-10">
+              <div className="px-10 lg:px-32">
                 <h1 className="py-5 text-2xl">{blog.title}</h1>
                 <ReactMarkdown className="space-y-5">
                   {blog.content}
                 </ReactMarkdown>
               </div>
               {blog.codeSnippet ? (
-                <div className="px-10 pt-5 gap-2 flex flex-col text-xs">
+                <div className="px-10 lg:px-32 pt-5 gap-2 flex flex-col text-xs">
                   <p className="text-base">Code Snippet:</p>
                   <Highlight className={blog.codeLanguage}>
                     {blog.codeSnippet}
@@ -107,7 +107,7 @@ const Blog = () => {
             </>
           ))}
         </main>
-        <form onSubmit={handleSubmit} className="px-10 pt-10">
+        <form onSubmit={handleSubmit} className="px-10 lg:px-32 pt-10">
           <div className="bg-gray-100 p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-6 border-b-2 border-gray-300 pb-2">
               Plaats een Reactie
@@ -149,7 +149,7 @@ const Blog = () => {
           </div>
         </form>
 
-        <div className="mt-6 px-10">
+        <div className="mt-6 px-10 lg:px-32">
           <div className="bg-gray-100 p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-6 border-b-2 border-gray-300 pb-2">
               {comments?.length} Reactie{comments?.length !== 1 ? "s" : ""}
